@@ -7,12 +7,14 @@ EXTENSOES = {
     'Imagens': ['.jpg', '.jpeg', '.png', '.gif'],
     'Planilhas': ['.xlsx', '.xls', '.csv'],
     'Textos': ['.txt', '.docx'],
-    'Compactados': ['.zip', '.rar']
+    'Compactados': ['.zip', '.rar'],
 }
+
 
 def criar_pasta(caminho):
     if not os.path.exists(caminho):
         os.makedirs(caminho)
+
 
 def caminho_disponivel(pasta_destino, arquivo):
     """Devolve um caminho livre em pasta_destino, sem sobrescrever nada.
@@ -26,6 +28,7 @@ def caminho_disponivel(pasta_destino, arquivo):
         candidato = os.path.join(pasta_destino, f'{nome} ({contador}){extensao}')
         contador += 1
     return candidato
+
 
 def organizar_arquivos(pasta_origem):
     arquivos = os.listdir(pasta_origem)
@@ -51,8 +54,9 @@ def organizar_arquivos(pasta_origem):
                     if novo_nome == arquivo:
                         print(f'Movido: {arquivo} → {pasta}')
                     else:
-                        print(f'Movido: {arquivo} → {pasta} (renomeado para "{novo_nome}", já existia um arquivo com esse nome)')
+                        print(f'Movido: {arquivo} → {pasta} (já existia; salvo como "{novo_nome}")')
                     break
+
 
 def main():
     pasta = input('Digite o caminho da pasta a ser organizada: ').strip()
@@ -62,6 +66,7 @@ def main():
         print('\nOrganização concluída!')
     else:
         print('Pasta não encontrada.')
+
 
 if __name__ == '__main__':
     main()

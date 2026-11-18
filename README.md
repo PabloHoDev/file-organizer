@@ -26,12 +26,17 @@ python Organizador_Arquivo_Python/main.py      # informe o caminho de Pasta_test
 
 Rodar o gerador de novo recria o cenário do zero. A pasta `Pasta_teste/` fica fora do Git.
 
-### Testes automatizados
+### Testes e checks (os mesmos do CI)
 
 ```bash
-pip install pytest
-python -m pytest
+pip install -r requirements-dev.txt
+ruff format --check .   # formatação
+ruff check .            # lint
+mypy                    # typecheck
+python -m pytest        # testes
 ```
+
+O CI (`.github/workflows/ci.yml`) roda esses checks e o Gitleaks em todo PR e push na `main`.
 
 ## 🧠 Conceitos utilizados
 - Manipulação de arquivos

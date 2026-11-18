@@ -30,7 +30,6 @@ ARQUIVOS = [
     ('anotacoes.txt', b'lembrar de pagar o boleto', 'vai para Textos/'),
     ('curriculo.docx', b'PK fake docx', 'vai para Textos/'),
     ('backup_fotos.zip', b'PK fake zip', 'vai para Compactados/'),
-
     # Casos de borda
     ('FOTO_CELULAR.JPG', b'\xff\xd8\xff fake', 'extensão maiúscula: deve ir para Imagens/'),
     ('Relatório Anual 2025.pdf', b'%PDF-1.4 fake', 'acento e espaço: deve ir para PDFs/'),
@@ -40,11 +39,10 @@ ARQUIVOS = [
     ('LEIAME', b'arquivo sem extensao', 'sem extensão: deve ficar na raiz'),
     ('.config_oculta', b'oculto', 'arquivo oculto: deve ficar na raiz'),
     ('projeto/rascunho.txt', b'dentro de subpasta', 'subpasta: não deve ser tocada'),
-
     # Colisão: já existe um arquivo com o mesmo nome no destino
     ('Imagens/logo_antigo.png', b'\x89PNG versao antiga', 'já estava organizado'),
     ('Imagens/perfil.png', b'\x89PNG versao antiga', 'já estava organizado'),
-    ('perfil.png', b'\x89PNG versao NOVA', 'colisão: vai para Imagens/perfil (1).png, sem sobrescrever'),
+    ('perfil.png', b'\x89PNG versao NOVA', 'colisão: vira Imagens/perfil (1).png'),
 ]
 
 
