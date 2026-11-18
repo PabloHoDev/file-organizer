@@ -1,0 +1,19 @@
+# Pasta gerada pelo cenário de teste (scripts/gerar_cenario_teste.py)
+Pasta_teste/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Ambiente e segredos
+.env*
+!.env.example
+
+# Editor / SO
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
