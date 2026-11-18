@@ -11,6 +11,7 @@ Script em Python para organizar automaticamente arquivos de uma pasta com base e
 - Organização automática por tipo de arquivo
 - Criação de pastas se não existirem
 - Suporte a PDFs, imagens, planilhas, textos e arquivos compactados
+- Nunca sobrescreve: se o destino já tem um arquivo com o mesmo nome, o novo vira `nome (1).ext`
 
 ## 🧪 Como testar com um cenário pronto
 
@@ -24,6 +25,13 @@ python Organizador_Arquivo_Python/main.py      # informe o caminho de Pasta_test
 ```
 
 Rodar o gerador de novo recria o cenário do zero. A pasta `Pasta_teste/` fica fora do Git.
+
+### Testes automatizados
+
+```bash
+pip install pytest
+python -m pytest
+```
 
 ## 🧠 Conceitos utilizados
 - Manipulação de arquivos

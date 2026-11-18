@@ -44,7 +44,7 @@ ARQUIVOS = [
     # Colisão: já existe um arquivo com o mesmo nome no destino
     ('Imagens/logo_antigo.png', b'\x89PNG versao antiga', 'já estava organizado'),
     ('Imagens/perfil.png', b'\x89PNG versao antiga', 'já estava organizado'),
-    ('perfil.png', b'\x89PNG versao NOVA', 'colisão com Imagens/perfil.png: não pode perder dados'),
+    ('perfil.png', b'\x89PNG versao NOVA', 'colisão: vai para Imagens/perfil (1).png, sem sobrescrever'),
 ]
 
 
