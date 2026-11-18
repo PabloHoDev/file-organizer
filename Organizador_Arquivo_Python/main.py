@@ -14,6 +14,19 @@ def criar_pasta(caminho):
     if not os.path.exists(caminho):
         os.makedirs(caminho)
 
+def caminho_disponivel(pasta_destino, arquivo):
+    """Devolve um caminho livre em pasta_destino, sem sobrescrever nada.
+
+    Se 'foto.png' já existe, tenta 'foto (1).png', 'foto (2).png'...
+    """
+    nome, extensao = os.path.splitext(arquivo)
+    candidato = os.path.join(pasta_destino, arquivo)
+    contador = 1
+    while os.path.exists(candidato):
+        candidato = os.path.join(pasta_destino, f'{nome} ({contador}){extensao}')
+        contador += 1
+    return candidato
+
 def organizar_arquivos(pasta_origem):
     arquivos = os.listdir(pasta_origem)
 
@@ -27,8 +40,18 @@ def organizar_arquivos(pasta_origem):
                 if extensao.lower() in extensoes:
                     pasta_destino = os.path.join(pasta_origem, pasta)
                     criar_pasta(pasta_destino)
-                    shutil.move(caminho_arquivo, pasta_destino)
-                    print(f'Movido: {arquivo} → {pasta}')
+                    destino = caminho_disponivel(pasta_destino, arquivo)
+                    try:
+                        shutil.move(caminho_arquivo, destino)
+                    except OSError as erro:
+                        print(f'Erro ao mover {arquivo}: {erro}')
+                        break
+
+                    novo_nome = os.path.basename(destino)
+                    if novo_nome == arquivo:
+                        print(f'Movido: {arquivo} → {pasta}')
+                    else:
+                        print(f'Movido: {arquivo} → {pasta} (renomeado para "{novo_nome}", já existia um arquivo com esse nome)')
                     break
 
 def main():
