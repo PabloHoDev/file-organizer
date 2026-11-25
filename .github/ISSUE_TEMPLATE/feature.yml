@@ -1,0 +1,27 @@
+name: Funcionalidade
+description: Proponha uma melhoria ou funcionalidade nova
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema
+      description: Qual situação real isso resolve? Quem é afetado?
+    validations:
+      required: true
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Proposta
+      description: Como deveria funcionar. Indique a etapa do pipeline afetada (Extract, Transform ou Load), se souber.
+    validations:
+      required: true
+  - type: textarea
+    id: aceite
+    attributes:
+      label: Critérios de aceite
+      placeholder: |
+        - [ ] ...
+        - [ ] Coberto por teste
+    validations:
+      required: true

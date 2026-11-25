@@ -1,0 +1,35 @@
+name: Bug
+description: Algo não funciona como deveria
+title: 'Bug: '
+labels: [bug]
+body:
+  - type: textarea
+    id: reproduzir
+    attributes:
+      label: Como reproduzir
+      description: Passo a passo. Se possível, parta do cenário de teste (`scripts/gerar_cenario_teste.py`).
+      placeholder: |
+        1. python scripts/gerar_cenario_teste.py
+        2. python Organizador_Arquivo_Python/main.py e informar Pasta_teste
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: obtido
+    attributes:
+      label: O que acontece
+      description: Inclua a mensagem de erro ou o traceback, se houver.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: O que era esperado
+    validations:
+      required: true
+  - type: input
+    id: ambiente
+    attributes:
+      label: Ambiente
+      placeholder: Windows 10, Python 3.13
